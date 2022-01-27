@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> New Book Form </title>
+ </head>
+<body>
+   <h2> Add New Record </h2>
+   <form action="/add" method="post">
+   {% csrf_token %}
+   {{form}}
+   <input type="submit" value="Add">
+   </form>
+</div>
+</body>
+</html>
