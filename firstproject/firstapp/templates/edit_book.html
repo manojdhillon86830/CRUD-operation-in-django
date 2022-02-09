@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title> New Book Form </title>
+ </head>
+<body>
+<div id="main">
+  <h1> Edit Book Record </h1>
+  <form action="edit" method="post">
+  {% csrf_token %}
+  <input type="Hidden" name="bookid" value="{{book.id}}">
+  {{form}}
+  <input type="submit" value="Save">
+  </form>
+</div>
+</body>
+</html>
