@@ -28,3 +28,20 @@ def deleteBook(request):
     book=models.Book.objects.filter(id=bookid)
     book.delete()
     return HttpResponseRedirect('view-book')
+
+def editBook(request):
+    book = models.Book.objects.get(id=request.GET['bookid'])
+    # fields={'title':book.title,'author':book.author}
+    form=NewBookForm()
+    res=render(request,'edit_book.html',{'form':form,'book':book})
+    return res
+
+def edit(request):
+    if request.method=="POST":
+        form=NewBookForm(request.POST)
+        book=models.Book()
+        book.id=request.POST['bookid']
+        book.title=form.data['title']
+        book.author=form.data['author']
+        book.save()
+        return HttpResponseRedirect('view-book')
