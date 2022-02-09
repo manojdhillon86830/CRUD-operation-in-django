@@ -19,6 +19,8 @@ from django.urls import path
 from firstapp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('edit-book',views.editBook),
+    path('edit',views.edit),
     path('view-book',views.viewBook),
     path('delete-book',views.deleteBook),
     path('new-book',views.newBook),
